@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="packageForm" (ngSubmit)="Submit()">
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="package">Package:</label>
+                </div>
+                <div class="form-group col-md-10">
+
+                    <input type="text" class="form-control" id="package" placeholder="package" formControlName="package" name="package" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="item_name">Type:</label>
+                </div>
+                <div class="form-group col-md-5">
+
+                    <input type="text" class="form-control" id="item_name" placeholder="item_name" name="item_name" formControlName="item_name" required>
+                </div> 
+                <div class="form-group col-md-5">
+                    <input type="text" class="form-control" placeholder="item_qty"  name="item_qty" formControlName="item_qty" >
+                </div>
+            </div>
+            <button type="submit" class="btn btn-info">Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>
