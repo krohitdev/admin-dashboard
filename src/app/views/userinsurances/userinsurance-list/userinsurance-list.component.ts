@@ -35,9 +35,8 @@ export class UserinsuranceListComponent implements OnInit {
         if(this.checkDate(obj.expireDate)){
           obj['expireIn'] = true;
         }else{
-           obj['expireIn'] = false;
+          obj['expireIn'] = false;
         }
-        //this.items[obj]
       });
 
       console.log('>>>>',this.items);

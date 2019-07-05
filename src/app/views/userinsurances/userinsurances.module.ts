@@ -5,6 +5,7 @@ import { UserinsurancesRoutingModule } from './userinsurances-routing.module';
 import { UserinsuranceListComponent } from './userinsurance-list/userinsurance-list.component';
 import { NavbarModule } from '../navbar/navbar.module';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { DefaultLayoutModule } from 'src/app/containers/default-layout/default-layout.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     CommonModule,
     UserinsurancesRoutingModule,
     NavbarModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    DefaultLayoutModule
   ]
 })
 export class UserinsurancesModule { }

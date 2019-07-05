@@ -12,8 +12,7 @@ export class UserService {
   constructor(public http:HttpClient) { }
   baseUrl: string = 'http://localhost:8585/api/admin/login';
 
-  login(data){
-    console.log(data);
+  login(data){    
     return this.http.post(this.baseUrl ,data)
     .pipe(
      map(data => {return data}),

@@ -1,41 +1,50 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> User Insuances
-                </div>
-                <div class="card-body">
-                    <div *ngFor="let alert of alerts;">
-                        <alert type="danger" [dismissible]="true">
-                                User: <strong>{{alert.username}}</strong>'s Insurance <strong>{{alert.insuranceItem}}</strong> is expire on {{ alert.date }}.
-                        </alert>
+<div class="app-body">
+
+
+    <app-default-layout></app-default-layout>
+    <main class="main">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Home</li>
+        </ol>
+        <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i> User Insuances
+                            </div>
+                            <div class="card-body">
+                                <div *ngFor="let alert of alerts;">
+                                    <alert type="danger" [dismissible]="true">
+                                            User: <strong>{{alert.username}}</strong>'s Insurance <strong>{{alert.insuranceItem}}</strong> is expire on {{ alert.date }}.
+                                    </alert>
+                                </div>
+                                <table class="table table-striped">
+                                    <thead> 
+                                        <th>Sr. No</th>
+                                        <th>Insurance Item</th>
+                                        <th>User Name</th>
+                                        <th>Start Date</th>
+                                        <th>Expire Date</th>
+                                        <th>Created Date</th>
+                                    </thead>
+                                    <tbody *ngFor="let item of items; let i = index">
+                                        <tr [ngStyle]="{'background-color': item.expireIn? 'red' : ''}">
+                                            <td>{{ i+1 }}</td>
+                                            <td>{{ item.insuranceData[0].insuranceType }}</td>
+                                            <td>{{ item.userData[0].firstName }} </td>
+                                            <td>{{ item.startDate.split("T")[0] }}</td>
+                                            <td>{{ item.expireDate.split("T")[0] }}</td>
+                                            <td>{{ item.createdAt.split("T")[0] }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                    <table class="table table-striped">
-                        <thead> 
-                            <th>Sr. No</th>
-                            <th>Insurance Item</th>
-                            <th>User Name</th>
-                            <th>Start Date</th>
-                            <th>Expire Date</th>
-                            <th>Created Date</th>
-                        </thead>
-                        <tbody *ngFor="let item of items; let i = index">
-                            <tr [ngStyle]="{'background-color': item.expireIn? 'red' : ''}">
-                                <td>{{ i+1 }}</td>
-                                <td>{{ item.insuranceData[0].insuranceType }}</td>
-                                <td>{{ item.userData[0].firstName }} </td>
-                                <td>{{ item.startDate.split("T")[0] }}</td>
-                                <td>{{ item.expireDate.split("T")[0] }}</td>
-                                <td>{{ item.createdAt.split("T")[0] }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-            </div>
         </div>
-    </div>
+    </main>
 </div>
    
